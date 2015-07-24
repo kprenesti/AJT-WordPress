@@ -56,16 +56,16 @@ $ajt_stored_meta = get_post_meta($post -> ID);
     </div><!--end row--> 
     <div class="meta-row">
       <div class="meta-th sub">
-        <label for="ajt-promo-start" class="ajt-row-title">Start Date</label>
+        <label for="ajt_promo_start" class="ajt-row-title">Start Date</label>
       </div>
       <div class="meta-td sub">
-        <input type="text" name="ajt-promo-start" class="ajt-text-input" id="ajt-promo-start" value="">
+        <input type="text" name="ajt_promo_start" class="ajt-text-input" id="ajt_promo_start" value="<?php if ( ! empty ( $ajt_stored_meta['ajt_promo_start'] ) ) echo esc_attr( $ajt_stored_meta['ajt_promo_start'][0] ); ?>">
       </div>
       <div class="meta-th sub">
-        <label for="ajt-promo-end" class="ajt-row-title">End Date</label>
+        <label for="ajt_promo_end" class="ajt-row-title">End Date</label>
       </div>
       <div class="meta-td sub">
-        <input type="text" name="ajt-promo-end" class="ajt-text-input" id="ajt-promo-end" value="">
+        <input type="text" name="ajt_promo_end" class="ajt-text-input" id="ajt_promo_end" value="<?php if ( ! empty ( $ajt_stored_meta['ajt_promo_end'] ) ) echo esc_attr( $ajt_stored_meta['ajt_promo_end'][0] ); ?>">
       </div>
     </div><!--end row--> 
     <div class="meta-row">
@@ -145,11 +145,11 @@ function ajt_save_data( $post_id ) {
     if ( isset( $_POST[ 'ajt_promo_dur' ] ) ) {
     	update_post_meta( $post_id, 'ajt_promo_dur', sanitize_text_field( $_POST[ 'ajt_promo_dur' ] ) );
     }
-    if ( isset( $_POST[ 'ajt-promo-start' ] ) ) {
-    	update_post_meta( $post_id, 'ajt-promo-start', sanitize_text_field( $_POST[ 'ajt-promo-start' ] ) );
+    if ( isset( $_POST[ 'ajt_promo_start' ] ) ) {
+    	update_post_meta( $post_id, 'ajt_promo_start', sanitize_text_field( $_POST[ 'ajt_promo_start' ] ) );
     }
-    if ( isset( $_POST[ 'ajt-promo-end' ] ) ) {
-    	update_post_meta( $post_id, 'ajt-promo-end', sanitize_text_field( $_POST[ 'ajt-promo-end' ] ) );
+    if ( isset( $_POST[ 'ajt_promo_end' ] ) ) {
+    	update_post_meta( $post_id, 'ajt_promo_end', sanitize_text_field( $_POST[ 'ajt_promo_end' ] ) );
     }
     if ( isset( $_POST[ 'promo_desc' ] ) ) {
     	update_post_meta( $post_id, 'promo_desc', sanitize_text_field( $_POST[ 'promo_desc' ] ) );

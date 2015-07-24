@@ -44,7 +44,7 @@ function ajt_register_promos() {
     'supports'           => array (
               'title', 'thumbnail', 'excerpt' ),
     'taxonomies'         => array(
-              'locations', 'styles', 'duration')
+              'locations', 'styles', 'duration', 'post_tag')
         );
   
 register_post_type('promos', $args);
@@ -128,5 +128,18 @@ $labels = array(
   );
 
   register_taxonomy('duration', array('promos', 'posts', 'pages'), $args);
+}
+
+add_filter('pre_get_posts', 'ajt_query_post_type');
+function ajt_query_post_type($query) {
+  if(is_category() || is_tag()) {
+    $post_type = get_query_var('post_type');
+	   if($post_type)
+	    $post_type = $post_type;
+	   else
+	    $post_type = array('post','promos');
+    $query->set('post_type',$post_type);
+	return $query;
+    }
 }
 ?>
